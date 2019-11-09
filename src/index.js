@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const github = require('./lib/github');
 const inquirer = require('./lib/inquirer');
 const chalk = require('chalk');
