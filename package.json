@@ -1,0 +1,10 @@
+{
+  "name": "my_node_cli",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "danielshow <danielshotonwa53@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "inquirer": "^7.0.0"
+  }
+}
