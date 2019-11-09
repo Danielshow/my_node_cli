@@ -20,18 +20,17 @@ module.exports = {
     }
   },
 
-  cloneRepository: (project) => {
+  cloneRepository: async (project) => {
     const status = new Spinner('Cloning remote repository...');
     status.start();
     if (project.project === "NodeJs with Typescript"){
-      return git.clone('https://github.com/Danielshow/node_typescript')
-        .then(exec(`mv node_typescript ${project.name}`, (err, stdout, stderr) => {
-          if(err){
-            console.error(err)
-          }
-        })).finally(status.stop())
+      await git.clone('https://github.com/Danielshow/node_typescript')
+      await exec(`mv node_typescript ${project.name}`)
+      status.stop()
     } else if(project.project === 'NodeJs with Typescript') {
-
+      await git.clone('https://github.com/Danielshow/node_babel')
+      await exec(`mv node_babel ${project.name}`)
+      status.stop()
     }else {
       console.log(chalk.yellowBright("Nothing was chosen"))
     }
