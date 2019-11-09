@@ -29,13 +29,15 @@ module.exports = {
       await exec(`mv node_typescript ${project.name}`)
       status.stop()
       inquirer.done();
-    } else if(project.project === 'NodeJs with Typescript') {
+    } else if(project.project === 'NodeJs with Babel') {
       await git.clone('https://github.com/Danielshow/node_babel')
       await exec(`mv node_babel ${project.name}`)
       status.stop()
       inquirer.done();
     }else {
       console.log(chalk.yellowBright("Nothing was chosen"))
+      status.stop()
+      inquirer.done();
     }
   }
 }

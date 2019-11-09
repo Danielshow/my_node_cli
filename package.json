@@ -5,7 +5,6 @@
   "author": "danielshow <danielshotonwa53@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@octokit/rest": "^16.34.1",
     "chalk": "^3.0.0",
     "clear": "^0.1.0",
     "clui": "^0.3.6",
