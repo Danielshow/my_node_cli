@@ -1,4 +1,5 @@
-var inquirer = require('inquirer');
+const inquirer = require('inquirer');
+const files = require('./lib/files');
 
 const init = () => {
   console.log("Lets start")
