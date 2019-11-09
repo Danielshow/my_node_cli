@@ -1,9 +1,11 @@
 {
-  "name": "my_node_cli",
-  "version": "1.0.0",
+  "name": "@danielshow/my_node_cli",
+  "version": "1.0.1",
   "description": "A node-cli to fetch bottstrap node template from github",
   "main": "src/index.js",
-  "bin": "src/index",
+  "bin": {
+    "my_node_cli": "src/index.js"
+  },
   "author": "danielshow <danielshotonwa53@gmail.com>",
   "license": "MIT",
   "scripts": {
