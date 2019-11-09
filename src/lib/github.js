@@ -4,6 +4,7 @@ const figlet = require('figlet');
 const git = require('simple-git/promise')();
 const CLI = require('clui');
 const { exec } = require('child_process');
+const inquirer = require('./inquirer');
 
 const Spinner = CLI.Spinner;
 
@@ -27,10 +28,12 @@ module.exports = {
       await git.clone('https://github.com/Danielshow/node_typescript')
       await exec(`mv node_typescript ${project.name}`)
       status.stop()
+      inquirer.done();
     } else if(project.project === 'NodeJs with Typescript') {
       await git.clone('https://github.com/Danielshow/node_babel')
       await exec(`mv node_babel ${project.name}`)
       status.stop()
+      inquirer.done();
     }else {
       console.log(chalk.yellowBright("Nothing was chosen"))
     }

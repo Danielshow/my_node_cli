@@ -1,5 +1,7 @@
 const inquirer = require('inquirer')
 const files = require('./files');
+const chalk = require('chalk');
+const figlet = require('figlet');
 
 module.exports = {
   chooseProject: () => {
@@ -30,5 +32,18 @@ module.exports = {
     ]
 
     return inquirer.prompt(questions)
+  },
+
+  done: () => {
+    console.log(
+      chalk.yellow(
+        "cloned successfully"
+      )
+    )
+    console.log(
+      chalk.yellow(
+        figlet.textSync('Thank you', "Caligraphy")
+      )
+    );
   }
 }
