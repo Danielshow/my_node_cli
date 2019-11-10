@@ -18,7 +18,7 @@ const execShellCommand = (cmd) => {
   return new Promise((resolve, reject) => {
     exec(cmd, (error, stdout, stderr) => {
       if (error) {
-        console.warn(error);
+        console.warn("An error occured when insalling dependencies. you can run it by going into the directory and do npm install or yarn install");
       }
       resolve(stdout ? stdout : stderr);
     });
