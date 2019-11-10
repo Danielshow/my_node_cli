@@ -7,11 +7,13 @@ const { exec } = require("child_process");
 const inquirer = require("./inquirer");
 const path = require("path");
 
+const Spinner = CLI.Spinner;
+
 const moveToDirectory = nameOfPath => {
   return path.join(process.cwd(), nameOfPath);
 };
 
-function execShellCommand(cmd) {
+const execShellCommand = (cmd) => {
   const exec = require("child_process").exec;
   return new Promise((resolve, reject) => {
     exec(cmd, (error, stdout, stderr) => {
@@ -22,7 +24,34 @@ function execShellCommand(cmd) {
     });
   });
 }
-const Spinner = CLI.Spinner;
+
+const executeInstall = async (project_name) => {
+  const status = new Spinner("Installing dependencies...");
+  status.start()
+  try {
+    execShellCommand(`cd ${moveToDirectory(project_name)} && yarn install`).then(() => {
+      console.log('\n')
+      console.log(
+        chalk.yellow(
+          "Installed successfully"
+        )
+      )
+      status.stop()
+      inquirer.done();
+    })
+  } catch (err) {
+    await exec(`cd ${moveToDirectory(project_name)} && npm install`);
+    console.log('\n')
+      console.log(
+        chalk.yellow(
+          "Installed successfully"
+        )
+      )
+      status.stop()
+      inquirer.done();
+  }
+}
+
 
 module.exports = {
   isGitRepository: () => {
@@ -46,17 +75,7 @@ module.exports = {
     } else {
       console.log(chalk.yellowBright("Nothing was chosen"));
     }
-    try {
-      execShellCommand(`cd ${moveToDirectory(project_name)} && yarn install`).then(() => {
-        console.log("I am done")
-      })
-    } catch (err) {
-      await exec(`cd ${moveToDirectory(project_name)} && npm install`);
-    } finally {
-      setTimeout(() => {
-        inquirer.done();
-        return status.stop();
-      }, 1000);
-    }
+    status.stop();
+    return executeInstall(project_name)
   }
 };
