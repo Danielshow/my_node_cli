@@ -15,8 +15,9 @@ const init = async () => {
   );
   //github.isGitRepository()
   const project = await inquirer.chooseProject()
-  github.cloneRepository(project)
+  await github.cloneRepository(project)
   await exec(`cd ${project.name}`)
+  // await inquirer.done()
 }
 
 init()
