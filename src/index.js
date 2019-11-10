@@ -13,11 +13,10 @@ const init = async () => {
       figlet.textSync('My NODE CLI', { horizontalLayout: 'full' })
     )
   );
-  //github.isGitRepository()
+  github.isGitRepository()
   const project = await inquirer.chooseProject()
   await github.cloneRepository(project)
   await exec(`cd ${project.name}`)
-  // await inquirer.done()
 }
 
 init()
