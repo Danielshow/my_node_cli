@@ -13,6 +13,7 @@ module.exports = {
         choices: [
           'NodeJs with Babel',
           'NodeJs with Typescript',
+          'NodeJs with Dependency Injection',
           new inquirer.Separator(),     
         ]
       },

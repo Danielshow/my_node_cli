@@ -72,6 +72,9 @@ module.exports = {
     } else if (project.project === "NodeJs with Babel") {
       await git.clone("https://github.com/Danielshow/node_babel");
       await exec(`mv node_babel ${project.name}`);
+    } else if(project.project === "NodeJs with Dependency Injection") {
+      await git.clone("https://github.com/Danielshow/node_api_with_dependency_injection");
+      await exec(`mv node_api_with_dependency_injection ${project.name}`);
     } else {
       console.log(chalk.yellowBright("Nothing was chosen"));
     }
