@@ -17,3 +17,5 @@ npm install -g @danielshow/my_node_cli
 After installing, you will be able to run `my_node_cli` in your terminal successfully.
 
 Thanks to this [tutorial](https://www.sitepoint.com/javascript-command-line-interface-cli-node-js/) for the help and for unblocking me many times.
+
+Link: [Node Cli](https://www.npmjs.com/package/@danielshow/my_node_cli)
